@@ -1,0 +1,41 @@
+﻿<Window x:Class="br.com.lassal.Agenda.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525"
+        x:Name="WAgenda">
+    <Window.Resources>
+        <DataTemplate x:Key="ContactItemDisplay">
+            <StackPanel>
+                <Label FontWeight="Bold" Content="{Binding Path=LastName}"/>
+                <Label Content="{Binding Path=Fullname}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Canvas>
+                
+            </Canvas>
+            <TabControl Name="TabSetContacts" TabStripPlacement="Left" ItemsSource="{Binding ElementName=WAgenda, Path=ViewModel.TodosContatos.Groups}">
+                <TabControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </TabControl.ItemTemplate>
+                <TabControl.ContentTemplate>
+                    <DataTemplate>
+                        <ListBox Name="Contacts" ItemsSource="{Binding Contacts}" 
+                                 ItemTemplate="{StaticResource ContactItemDisplay}" SelectionChanged="ListBox_SelectionChanged" />
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+            </TabControl>
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <TextBlock Text="{Binding ElementName=WAgenda,Path=ViewModel.SelectedContact.Fullname}" />
+        </Grid>
+    </Grid>
+</Window>

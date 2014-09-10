@@ -99,7 +99,7 @@ namespace Test.br.com.lassal.Agenda
 
             Assert.AreEqual(firstContact, form.SelectedContact);
 
-            form.SelectContact(selectedContact);
+            form.SelectedContact = selectedContact;
             Assert.AreEqual(selectedContact, form.SelectedContact);
         }
 
@@ -115,7 +115,7 @@ namespace Test.br.com.lassal.Agenda
             Assert.AreEqual(firstContact, form.SelectedContact);
 
             // seleciona contato
-            form.SelectContact(selectedContact);
+            form.SelectedContact = selectedContact;
             Assert.AreEqual(selectedContact, form.SelectedContact);
 
             // verifica que nenhum contato esta sendo editado agora
@@ -128,7 +128,7 @@ namespace Test.br.com.lassal.Agenda
 
             //seleciona outro contato
             Contact selectedContact2 = form.TodosContatos.Groups[2].Contacts[1];
-            form.SelectContact(selectedContact2);
+            form.SelectedContact = selectedContact2;
             form.EditContact();
             Assert.AreEqual(selectedContact, form.CurrentEditContact.Contact);
 
@@ -147,7 +147,7 @@ namespace Test.br.com.lassal.Agenda
             Contact selectedContact = form.TodosContatos.Groups[1].Contacts[2];
 
             // seleciona contato
-            form.SelectContact(selectedContact);
+            form.SelectedContact = selectedContact;
             Assert.AreEqual(selectedContact, form.SelectedContact);
 
             // verifica que nenhum contato esta sendo editado agora
@@ -191,7 +191,7 @@ namespace Test.br.com.lassal.Agenda
             long selContactID = selectedContact.ID.Value;
 
             // seleciona contato
-            form.SelectContact(selectedContact);
+            form.SelectedContact = selectedContact;
             Assert.AreEqual(selectedContact, form.SelectedContact);
 
             form.DeleteContact();

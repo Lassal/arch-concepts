@@ -131,7 +131,7 @@ namespace br.com.lassal.Agenda.WinForms
             }
             this.lastSelectedItem = (ContactItemCtrx)sender;
             this.lastSelectedItem.BackColor = Color.Wheat;
-            this.frmModel.SelectContact(this.lastSelectedItem.Contact);
+            this.frmModel.SelectedContact = this.lastSelectedItem.Contact;
             this.BindSelectedContact();
         }
 

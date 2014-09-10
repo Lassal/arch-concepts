@@ -58,7 +58,7 @@ namespace br.com.lassal.Agenda.Entity
 
         public override bool Equals(object obj)
         {
-            if (obj != null)
+            if (obj != null && obj is Contact)
             {
                 Contact other = (Contact)obj;
 

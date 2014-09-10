@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br.com.lassal.Agenda.WPF", "br.com.lassal.Agenda.WPF\br.com.lassal.Agenda.WPF.csproj", "{7F2824C0-58F3-4CB3-AFFF-68DB67ECA886}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = PresentationModel_Agenda.vsmdi
@@ -105,6 +107,16 @@ Global
 		{92445CFD-BF42-4321-8503-4DC257A788ED}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{92445CFD-BF42-4321-8503-4DC257A788ED}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{92445CFD-BF42-4321-8503-4DC257A788ED}.Release|x86.ActiveCfg = Release|Any CPU
+		{7F2824C0-58F3-4CB3-AFFF-68DB67ECA886}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{7F2824C0-58F3-4CB3-AFFF-68DB67ECA886}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{7F2824C0-58F3-4CB3-AFFF-68DB67ECA886}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{7F2824C0-58F3-4CB3-AFFF-68DB67ECA886}.Debug|x86.ActiveCfg = Debug|x86
+		{7F2824C0-58F3-4CB3-AFFF-68DB67ECA886}.Debug|x86.Build.0 = Debug|x86
+		{7F2824C0-58F3-4CB3-AFFF-68DB67ECA886}.Release|Any CPU.ActiveCfg = Release|x86
+		{7F2824C0-58F3-4CB3-AFFF-68DB67ECA886}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{7F2824C0-58F3-4CB3-AFFF-68DB67ECA886}.Release|Mixed Platforms.Build.0 = Release|x86
+		{7F2824C0-58F3-4CB3-AFFF-68DB67ECA886}.Release|x86.ActiveCfg = Release|x86
+		{7F2824C0-58F3-4CB3-AFFF-68DB67ECA886}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

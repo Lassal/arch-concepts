@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 using br.com.lassal.Agenda.Entity;
 using br.com.lassal.Agenda.Business;
 
 namespace br.com.lassal.Agenda.PM
 {
 
-    public class ListContactsUIModel
+    public class ListContactsUIModel : INotifyPropertyChanged
     {
         public ListContactsUIModel()
         {
@@ -62,6 +63,14 @@ namespace br.com.lassal.Agenda.PM
             {
                 return this.selectedContact;
             }
+            set
+            {
+                if (this.selectedContact == null || !this.selectedContact.Equals(value))
+                {
+                    this.selectedContact = value;
+                    OnPropertyChanged("SelectedContact");
+                }
+            }
         }
 
         #endregion
@@ -79,11 +88,11 @@ namespace br.com.lassal.Agenda.PM
                 this.erroBusca = null;
                 if (this.resultadoBusca != null && this.resultadoBusca.Count > 0)
                 {
-                    this.selectedContact = this.resultadoBusca[0];
+                    this.SelectedContact = this.resultadoBusca[0];
                 }
                 else
                 {
-                    this.selectedContact = null;
+                    this.SelectedContact = null;
                 }
             }
         }
@@ -100,17 +109,17 @@ namespace br.com.lassal.Agenda.PM
             if (this.todosContatos != null && this.todosContatos.Groups != null && this.todosContatos.Groups.Count > 0 &&
                this.todosContatos.Groups[0].Contacts != null && this.todosContatos.Groups[0].Contacts.Count > 0)
             {
-                this.SelectContact(this.todosContatos.Groups[0].Contacts[0]);
+                this.SelectedContact = this.todosContatos.Groups[0].Contacts[0];
             }
         }
 
-        public void SelectContact(Contact contact)
-        {
-            if (this.selectedContact == null || !this.selectedContact.Equals(contact))
-            {
-                this.selectedContact = contact;
-            }
-        }
+        //public void SelectContact(Contact contact)
+        //{
+        //    if (this.selectedContact == null || !this.selectedContact.Equals(contact))
+        //    {
+        //        this.selectedContact = contact;
+        //    }
+        //}
 
         #endregion
 
@@ -175,5 +184,16 @@ namespace br.com.lassal.Agenda.PM
         }
 
         #endregion
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
     }
 }
