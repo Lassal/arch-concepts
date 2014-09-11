@@ -26,6 +26,7 @@ namespace br.com.lassal.Agenda.WPF
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this.ViewModel;
            // this.TabSetContacts.DataContext = this.frmModel.TodosContatos;
 
         }
