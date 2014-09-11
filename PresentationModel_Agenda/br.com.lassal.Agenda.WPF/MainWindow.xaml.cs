@@ -39,11 +39,35 @@ namespace br.com.lassal.Agenda.WPF
             }
         }
 
-        public String SimpleTeste
+        private DataTemplate editContactTemplate = null;
+        private DataTemplate viewContactTemplate = null;
+        private bool editContactMode = false;
+        private bool EditContactMode
         {
             get
             {
-                return "Bdafa dfa";
+                return this.editContactMode;
+            }
+            set
+            {
+                if (value)
+                {
+                    if (this.editContactTemplate == null)
+                    {
+                        this.editContactTemplate = this.Resources["ContactDetailEdit"] as DataTemplate;
+                    }
+                    this.ContactDetails.ContentTemplate = this.editContactTemplate;
+                }
+                else
+                {
+                    if (this.viewContactTemplate == null)
+                    {
+                        this.viewContactTemplate = this.Resources["ContactDetailView"] as DataTemplate;
+                    }
+                    this.ContactDetails.ContentTemplate = this.viewContactTemplate;
+                }
+
+                this.editContactMode = value;
             }
         }
 
@@ -53,6 +77,42 @@ namespace br.com.lassal.Agenda.WPF
             {
                 Contact selectedContact = (Contact)((ListBox)e.Source).SelectedItem;
                 this.frmModel.SelectedContact = selectedContact;
+            }
+        }
+
+        private void EditContact_CMD(object sender, RoutedEventArgs e)
+        {
+            this.frmModel.EditContact();
+            this.EditContactMode = true;
+        }
+
+        private void DeleteContact_CMD(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NewContact_CMD(object sender, RoutedEventArgs e)
+        {
+            this.frmModel.NewContact();
+            this.EditContactMode = true;
+        }
+
+        private void CancelEditionContact_CMD(object sender, RoutedEventArgs e)
+        {
+            this.frmModel.CancelEditContact();
+            this.EditContactMode = false;
+
+        }
+
+        private void SaveContact_CMD(object sender, RoutedEventArgs e)
+        {
+            if (this.frmModel.SaveContact())
+            {
+                this.EditContactMode = false;
+            }
+            else
+            {
+                // show errors
             }
         }
     }
